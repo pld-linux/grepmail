@@ -1,0 +1,4 @@
+- ok, I lied in the previous commit message: shit built.  now it does.
+- there is something weird about Makefile.PL here (I failed to find out
+  what, but didn't looked too hard), so I used the "perl -MExtUtils..."
+  trick instead.
