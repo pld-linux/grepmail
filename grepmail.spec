@@ -3,7 +3,8 @@
 # _without_tests - do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	grepmail
+%define		pdir	Mail
+%define		pnam	grepmail
 Summary:	grepmail - search mailboxes for a particular email
 Summary(pl):	grepmail - wyszukaj konkretn± wiadomo¶æ w plikach z poczt±
 Name:		grepmail
@@ -11,7 +12,7 @@ Version:	4.72
 Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
-Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{version}.tar.gz
+Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
 URL:		http://grepmail.sourceforge.net/
 BuildRequires:	perl >= 5.6
 BuildRequires:	rpm-perlprov >= 3.0.3-26
@@ -37,7 +38,7 @@ wiadomo¶ci, które do niego pasuj±.  Przekazywanie na standardowe wej¶cie
 jest dozwolone, obs³ugiwane s± ograniczenia na datê i rozmiar.
 
 %prep
-%setup -q -n %{pdir}-%{version}
+%setup -q -n %{pnam}-%{version}
 perl -pi -e 's/^(require 5.003)(96;)$/$1_$2/' grepmail
 
 %build
