@@ -41,7 +41,8 @@ jest dozwolone, obs³ugiwane s± ograniczenia na datê i rozmiar.
 perl -pi -e 's/^(require 5.003)(96;)$/$1_$2/' grepmail
 
 %build
-yes | perl Makefile.PL FASTREADER=1
+#yes | perl Makefile.PL FASTREADER=1
+perl -MExtUtils::MakeMaker -e 'WriteMakefile(NAME=>"grepmail", EXE_FILES=>["grepmail"])'
 %{__make}
 
 %{!?_without_tests:LC_ALL=C %{__make} test}
@@ -58,6 +59,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGES README FastReader/Change*
 %attr(755,root,root) %{_bindir}/*
-%{perl_archlib}/Mail/Folder
-%attr(755,root,root) %{perl_archlib}/auto/Mail/Folder
+%{perl_sitearch}/Mail/Folder
+%attr(755,root,root) %{perl_sitearch}/auto/Mail/Folder
 %{_mandir}/man?/*
