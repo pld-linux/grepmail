@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _without_tests - do not perform "make test"
+%bcond_without	tests		# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Mail
@@ -16,7 +16,7 @@ Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
 # Source0-md5:	846558ef1fcca841f0b4fd455cf3ac11
 URL:		http://grepmail.sourceforge.net/
 BuildRequires:	perl-devel >= 5.6
-%if %{!?_without_tests:1}0
+%if %{with tests}
 BuildRequires:	perl-Date-Manip
 BuildRequires:	perl-TimeDate
 %endif
@@ -45,7 +45,7 @@ jest dozwolone, obs³ugiwane s± ograniczenia na datê i rozmiar.
 	FASTREADER=0
 %{__make}
 
-%{!?_without_tests:LC_ALL=C %{__make} test}
+%{?with_tests:LC_ALL=C %{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
