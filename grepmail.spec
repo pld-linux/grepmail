@@ -8,8 +8,8 @@
 Summary:	grepmail - search mailboxes for a particular email
 Summary(pl):	grepmail - wyszukaj konkretn± wiadomo¶æ w plikach z poczt±
 Name:		grepmail
-Version:	4.72
-Release:	2
+Version:	4.80
+Release:	1
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
