@@ -15,14 +15,13 @@ Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
 URL:		http://grepmail.sourceforge.net/
 BuildRequires:	perl >= 5.6
-BuildRequires:	rpm-perlprov >= 3.0.3-26
 %if %{?_without_tests:0}%{!?_without_tests:1}
-BuildRequires:	perl-TimeDate
 BuildRequires:	perl-Date-Manip
 BuildRequires:	perl-Inline >= 0.41
 BuildRequires:	perl-Inline-C >= 0.41
+BuildRequires:	perl-TimeDate
 %endif
-#BuildArch:	noarch
+BuildRequires:	rpm-perlprov >= 3.0.3-26
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
