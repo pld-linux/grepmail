@@ -5,10 +5,10 @@
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	grepmail
 Summary:	grepmail - search mailboxes for a particular email
-#Summary(pl):	
+Summary(pl):	grepmail - wyszukaj konkretn± wiadomo¶æ w plikach z poczt±
 Name:		grepmail
 Version:	4.72
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{version}.tar.gz
@@ -26,15 +26,19 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Grepmail searches a normal, gzip'd, bzip'd, or tzip'd mailbox for a given
-regular expression, and returns those emails that match it.  Piped input
-is allowed, and date and size restrictions are supported.
+Grepmail searches a normal, gzip'd, bzip'd, or tzip'd mailbox for
+a given regular expression, and returns those emails that match it.
+Piped input is allowed, and date and size restrictions are supported.
 
-# %description -l pl
-# TODO
+%description -l pl
+Grepmail przeszukuje zwyk³e lub skompresowane przy u¿yciu gzip, bzip2
+lub tzip pliki z poczt± przy u¿yciu wyra¿enia regularnego, oraz zwraca
+wiadomo¶ci, które do niego pasuj±.  Przekazywanie na standardowe wej¶cie
+jest dozwolone, obs³ugiwane s± ograniczenia na datê i rozmiar.
 
 %prep
 %setup -q -n %{pdir}-%{version}
+perl -pi -e 's/^(require 5.003)(96;)$/$1_$2/' grepmail
 
 %build
 yes "" | perl Makefile.PL
