@@ -9,19 +9,18 @@ Summary:	grepmail - search mailboxes for a particular email
 Summary(pl):	grepmail - wyszukaj konkretn± wiadomo¶æ w plikach z poczt±
 Name:		grepmail
 Version:	4.80
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pnam}-%{version}.tar.gz
 URL:		http://grepmail.sourceforge.net/
 BuildRequires:	perl >= 5.6
-%if %{?_without_tests:0}%{!?_without_tests:1}
+%if %{!?_without_tests:1}0
 BuildRequires:	perl-Date-Manip
-BuildRequires:	perl-Inline >= 0.41
-BuildRequires:	perl-Inline-C >= 0.41
 BuildRequires:	perl-TimeDate
 %endif
 BuildRequires:	rpm-perlprov >= 3.0.3-26
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,11 +36,12 @@ jest dozwolone, obs³ugiwane s± ograniczenia na datê i rozmiar.
 
 %prep
 %setup -q -n %{pnam}-%{version}
-perl -pi -e 's/^(require 5.003)(96;)$/$1_$2/' grepmail
+%{__perl} -pi -e 's/^(require 5.003)(96;)$/$1_$2/' grepmail
 
 %build
-#yes | perl Makefile.PL FASTREADER=1
-perl -MExtUtils::MakeMaker -e 'WriteMakefile(NAME=>"grepmail", EXE_FILES=>["grepmail"])'
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor \
+	FASTREADER=0
 %{__make}
 
 %{!?_without_tests:LC_ALL=C %{__make} test}
@@ -56,8 +56,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES README FastReader/Change*
+%doc CHANGES README
 %attr(755,root,root) %{_bindir}/*
-%{perl_sitearch}/Mail/Folder
-%attr(755,root,root) %{perl_sitearch}/auto/Mail/Folder
 %{_mandir}/man?/*
