@@ -1,10 +1,10 @@
 #
 # Conditional build:
-%bcond_without	tests		# do not perform "make test"
+%bcond_without	tests	# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	Mail
-%define	pnam	grepmail
+%define		pdir	Mail
+%define		pnam	grepmail
 Summary:	grepmail - search mailboxes for a particular email
 Summary(pl):	grepmail - wyszukaj konkretn± wiadomo¶æ w plikach z poczt±
 Name:		grepmail
@@ -32,7 +32,7 @@ Piped input is allowed, and date and size restrictions are supported.
 %description -l pl
 Grepmail przeszukuje zwyk³e lub skompresowane przy u¿yciu gzip, bzip2
 lub tzip pliki z poczt± przy u¿yciu wyra¿enia regularnego, oraz zwraca
-wiadomo¶ci, które do niego pasuj±.  Przekazywanie na standardowe wej¶cie
+wiadomo¶ci, które do niego pasuj±. Przekazywanie na standardowe wej¶cie
 jest dozwolone, obs³ugiwane s± ograniczenia na datê i rozmiar.
 
 %prep
