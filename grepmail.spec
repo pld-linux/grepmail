@@ -3,8 +3,8 @@
 # _without_tests - do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-%define		pdir	Mail
-%define		pnam	grepmail
+%define	pdir	Mail
+%define	pnam	grepmail
 Summary:	grepmail - search mailboxes for a particular email
 Summary(pl):	grepmail - wyszukaj konkretn± wiadomo¶æ w plikach z poczt±
 Name:		grepmail
@@ -21,9 +21,8 @@ BuildRequires:	perl-TimeDate
 BuildRequires:	perl-Date-Manip
 BuildRequires:	perl-Inline >= 0.41
 BuildRequires:	perl-Inline-C >= 0.41
-BuildRequires:	perl
 %endif
-BuildArch:	noarch
+#BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,10 +41,10 @@ jest dozwolone, obs³ugiwane s± ograniczenia na datê i rozmiar.
 perl -pi -e 's/^(require 5.003)(96;)$/$1_$2/' grepmail
 
 %build
-yes "" | perl Makefile.PL
+yes | perl Makefile.PL FASTREADER=1
 %{__make}
 
-%{!?_without_tests:%{__make} test}
+%{!?_without_tests:LC_ALL=C %{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
