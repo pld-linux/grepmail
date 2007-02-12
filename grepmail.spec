@@ -6,7 +6,7 @@
 %define		pdir	Mail
 %define		pnam	grepmail
 Summary:	grepmail - search mailboxes for a particular email
-Summary(pl):	grepmail - wyszukaj konkretn± wiadomo¶æ w plikach z poczt±
+Summary(pl.UTF-8):   grepmail - wyszukaj konkretnÄ… wiadomoÅ›Ä‡ w plikach z pocztÄ…
 Name:		grepmail
 Version:	4.80
 Release:	3
@@ -29,11 +29,11 @@ Grepmail searches a normal, gzip'd, bzip'd, or tzip'd mailbox for
 a given regular expression, and returns those emails that match it.
 Piped input is allowed, and date and size restrictions are supported.
 
-%description -l pl
-Grepmail przeszukuje zwyk³e lub skompresowane przy u¿yciu gzip, bzip2
-lub tzip pliki z poczt± przy u¿yciu wyra¿enia regularnego, oraz zwraca
-wiadomo¶ci, które do niego pasuj±. Przekazywanie na standardowe wej¶cie
-jest dozwolone, obs³ugiwane s± ograniczenia na datê i rozmiar.
+%description -l pl.UTF-8
+Grepmail przeszukuje zwykÅ‚e lub skompresowane przy uÅ¼yciu gzip, bzip2
+lub tzip pliki z pocztÄ… przy uÅ¼yciu wyraÅ¼enia regularnego, oraz zwraca
+wiadomoÅ›ci, ktÃ³re do niego pasujÄ…. Przekazywanie na standardowe wejÅ›cie
+jest dozwolone, obsÅ‚ugiwane sÄ… ograniczenia na datÄ™ i rozmiar.
 
 %prep
 %setup -q -n %{pnam}-%{version}
