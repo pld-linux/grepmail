@@ -6,7 +6,7 @@
 %define		pdir	Mail
 %define		pnam	grepmail
 Summary:	grepmail - search mailboxes for a particular email
-Summary(pl.UTF-8):   grepmail - wyszukaj konkretną wiadomość w plikach z pocztą
+Summary(pl.UTF-8):	grepmail - wyszukaj konkretną wiadomość w plikach z pocztą
 Name:		grepmail
 Version:	4.80
 Release:	3
